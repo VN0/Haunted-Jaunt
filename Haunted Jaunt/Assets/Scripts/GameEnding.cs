@@ -6,6 +6,7 @@ https://github.com/shubham-saudolla
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameEnding : MonoBehaviour
 {
@@ -13,8 +14,10 @@ public class GameEnding : MonoBehaviour
     public float displayImageDuration = 1f;
     public GameObject player;
     public CanvasGroup exitBackgroundImageCanvasGroup;
+    public CanvasGroup caughtBackgroundImageCanvasGroup;
 
     private bool _isPlayerAtExit;
+    private bool _isPlayerCaught;
     private float _timer;
 
     void OnTriggerEnter(Collider other)
@@ -26,21 +29,34 @@ public class GameEnding : MonoBehaviour
         }
     }
 
+    public void CaughtPlayer()
+    {
+        _isPlayerCaught = true;
+    }
+
     void Update()
     {
         if (_isPlayerAtExit)
         {
-            EndLevel();
+            EndLevel(exitBackgroundImageCanvasGroup, false);
+        }
+        else if (_isPlayerCaught)
+        {
+            EndLevel(caughtBackgroundImageCanvasGroup, true);
         }
     }
 
-    void EndLevel()
+    void EndLevel(CanvasGroup imageCanvasGroup, bool toRestart)
     {
         _timer += Time.deltaTime;
 
-        exitBackgroundImageCanvasGroup.alpha = _timer / fadeDuration;
+        imageCanvasGroup.alpha = _timer / fadeDuration;
 
-        if (_timer > fadeDuration + displayImageDuration)
+        if (toRestart)
+        {
+            SceneManager.LoadScene(0);
+        }
+        else
         {
             Debug.Log("Quitting");
             Application.Quit();
