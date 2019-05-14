@@ -366,5 +366,34 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 84
       objectReference: {fileID: 0}
+    - target: {fileID: 1258538570926858708, guid: 0aaa7033549142e43b70a1ece7dd2056,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1258538570926858708, guid: 0aaa7033549142e43b70a1ece7dd2056,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0aaa7033549142e43b70a1ece7dd2056, type: 3}
+--- !u!1 &1123019525 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6032238734901219844, guid: 0aaa7033549142e43b70a1ece7dd2056,
+    type: 3}
+  m_PrefabInstance: {fileID: 1078308014}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1123019526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123019525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ddf140dc74dc84bae1c92493cef387, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnSpeed: 20
